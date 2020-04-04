@@ -22,6 +22,33 @@ typedef struct arvore no;
 
 struct arvore *inicio, *aux, *novo, *ant;
 
+int mydel (no ** x)
+{
+    if ((*x)->dir != NULL) return (mydel (&(*x)->dir));
+    else
+    {
+        int n = (*x)->item;
+        (*x) = (*x)->esq;
+        return(n);
+    }
+}
+
+
+void remove2 (no ** raiz, int n)
+{
+    if((*raiz)->item == n)
+    {
+        if ((*raiz)->esq == NULL)
+            (*raiz)= (*raiz)->dir;
+        else if ((*raiz)->dir == NULL)
+            (*raiz)= (*raiz)->esq;
+        else (*raiz)->item = mydel(&(*raiz)->esq);
+    }
+    else if (n < (*raiz)->item)
+    remove2 (&(*raiz)->esq, n);
+    else remove2 (&(*raiz)->dir, n);
+}
+
 
 int insere_esquerda(int n) {
     novo = (no *) malloc(sizeof(no));
@@ -194,7 +221,7 @@ void retorna_numeros_pares(int *qtd, no *elementos) {
 int main() {
     setlocale(LC_ALL, "Portuguese");
 
-    int num, resp = 9, quanti = 0, pares = 0;
+    int num, resp = 9, quanti = 0, pares = 0, x;
     while (resp != 0) {
         printf("\n1. Inserir um valor na lista");
         printf("\n2. Buscar um valor na lista");
@@ -204,6 +231,7 @@ int main() {
         printf("\n6. Exibir lista em ordem");
         printf("\n7. Exibir a quantidade de folhas");
         printf("\n8. Exibir a quantidade de números pares");
+        printf("\n9. Teste");
         printf("\n0. Terminar Programa");
         printf("\n\n");
         scanf("%d", &resp);
@@ -240,6 +268,11 @@ int main() {
             case 8:
                 retorna_numeros_pares(&pares, inicio);
                 printf("\nQuantidade de folhas: %d\n", pares);
+                break;
+            case 9:
+                printf("\nQual numero vc deseja remover?\n");
+                scanf("%d",&x);
+                remove2(&inicio, x);
                 break;
         }
         printf("\n");
