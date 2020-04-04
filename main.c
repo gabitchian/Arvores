@@ -190,6 +190,20 @@ void retorna_numeros_pares(int *qtd, no *elementos) {
     }
 }
 
+int um_filho(no *nos, int qtd){
+    if(nos->esq != NULL)
+        qtd = um_filho(nos->esq, qtd);
+    if(nos->dir != NULL)
+        qtd = um_filho(nos->dir, qtd);
+
+    if(nos->esq != NULL && nos->dir == NULL)
+        qtd++;
+    else if(nos->esq == NULL && nos->dir != NULL)
+        qtd++;
+
+    return qtd;
+}
+
 
 int main() {
     setlocale(LC_ALL, "Portuguese");
@@ -204,6 +218,7 @@ int main() {
         printf("\n6. Exibir lista em ordem");
         printf("\n7. Exibir a quantidade de folhas");
         printf("\n8. Exibir a quantidade de números pares");
+        printf("\n10. Exibir a quantidade de nós que possuem UM filho");
         printf("\n0. Terminar Programa");
         printf("\n\n");
         scanf("%d", &resp);
@@ -241,6 +256,8 @@ int main() {
                 retorna_numeros_pares(&pares, inicio);
                 printf("\nQuantidade de folhas: %d\n", pares);
                 break;
+            case 10:
+                printf("\nQuantidade de nós que possuem UM filho: %d\n", um_filho(inicio, 0));
         }
         printf("\n");
         system("pause");
