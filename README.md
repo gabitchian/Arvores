@@ -1,19 +1,19 @@
 # Arvores
 
 Implemente funções para:
-# 1. Inserir um elemento n em uma árvore binária de busca.
-# 2. Percorrer a árvore, imprimindo os valores dos nós, segundo a estratégia em ordem.
-# 3. Idem, segundo a estratégia pré-ordem.
-# 4. Idem, segundo a estratégia pós-ordem.
+**1. Inserir um elemento n em uma árvore binária de busca.**
+**2. Percorrer a árvore, imprimindo os valores dos nós, segundo a estratégia em ordem.**
+**3. Idem, segundo a estratégia pré-ordem.**
+**4. Idem, segundo a estratégia pós-ordem.**
 5. Verificar se um certo valor n está presente na árvore.
 6. Retornar o maior valor presente em uma árvore.
-# 7. Retornar o menor valor presente em uma árvore.
+**7. Retornar o menor valor presente em uma árvore.**
 8. Retornar a média dos valores presentes em uma árvore.
 9. Retornar o número de NULLs presentes em uma árvore.
 10. Retornar a soma dos valores dos nós.
 11. Retornar o número de nós cujos valores são múltiplos de três.
 12. Retornar o número de nós de uma árvore.
-# 13. Retornar o número de folhas de uma árvore.
+**13. Retornar o número de folhas de uma árvore.**
 14. Retornar a altura de uma árvore.
 15. Remover um nó n de uma árvore binária de busca.
 16. Verificar se uma árvore é estritamente binária (uma árvore é estritamente binária
