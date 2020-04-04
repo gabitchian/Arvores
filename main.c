@@ -190,6 +190,18 @@ void retorna_numeros_pares(int *qtd, no *elementos) {
     }
 }
 
+int retorna_soma(no *elementos, int soma) {
+    if (elementos->esq != NULL) {
+        soma = retorna_soma(elementos->esq, soma);
+    }
+
+    if (elementos->dir != NULL) {
+        soma = retorna_soma(elementos->dir, soma);
+    }
+
+    return (soma + elementos->item);
+}
+
 
 int main() {
     setlocale(LC_ALL, "Portuguese");
@@ -204,6 +216,7 @@ int main() {
         printf("\n6. Exibir lista em ordem");
         printf("\n7. Exibir a quantidade de folhas");
         printf("\n8. Exibir a quantidade de números pares");
+        printf("\n9. Retorna soma");
         printf("\n0. Terminar Programa");
         printf("\n\n");
         scanf("%d", &resp);
@@ -240,6 +253,9 @@ int main() {
             case 8:
                 retorna_numeros_pares(&pares, inicio);
                 printf("\nQuantidade de folhas: %d\n", pares);
+                break;
+            case 9:
+                printf("\nSoma de todos os valores = %d\n", retorna_soma(inicio, 0));
                 break;
         }
         printf("\n");
